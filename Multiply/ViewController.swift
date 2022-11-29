@@ -21,6 +21,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var squareRootOutputLabel: UILabel!
     @IBOutlet weak var sliderLabelOne: UISlider!
     @IBOutlet weak var sliderLabelTwo: UISlider!
+    @IBOutlet weak var squareRootTextField: UITextField!
+    @IBOutlet weak var squareRootLabel: UILabel!
+    
     
     
     
@@ -147,6 +150,21 @@ class ViewController: UIViewController {
     //Stretch #9
         
     
+    @IBAction func squareRootPressed(_ sender: UIButton) {
+        
+        squareRootTextField.resignFirstResponder()
+        
+        
+        guard let data = squareRootTextField.text, !data.isEmpty, let squareRootText = Int(data) else { return }
+        var squareRootBefore: Double = Double(squareRootText)
+        
+        var squareRootAfter = squareRootBefore.squareRoot()
+        
+         squareRootAfter = Double(round(1000 * squareRootAfter) / 1000)
+
+        squareRootLabel.text = "\(squareRootAfter)"
+    
+    }
     
     
     
